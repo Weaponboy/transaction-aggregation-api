@@ -60,19 +60,16 @@ public class jsonPipeline {
             String dateStr     = node.path("date").asText();
             String status      = node.path("status").asText();
 
-            // Convert String date "2024-01-01" → java.util.Date
             LocalDate localDate = LocalDate.parse(dateStr);
             Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-            // Map to your transactionImpl constructor
-            // Adjust the order and parameters to match your actual transactionImpl constructor
             return new transactionImpl(
-                    accountId,      // customerName / account
+                    accountId,
                     amount,
                     date,
                     description,
-                    "Default Bank", // bank field
-                    type            // type
+                    "N/A",
+                    type
             );
 
         } catch (Exception e) {

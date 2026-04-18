@@ -1,12 +1,11 @@
-Date,Description,Amount,Type,Balance,Account
-2026-01-05,Salary Deposit - Acme Corp,+2500.00,Deposit,3250.50,CHK-123456
-2026-01-07,Starbucks Coffee,-5.75,Withdrawal,3244.75,CHK-123456
-2026-01-10,Online Transfer to Savings,-500.00,Transfer,2744.75,CHK-123456
-2026-01-12,Grocery Store - Whole Foods,-87.32,Withdrawal,2657.43,CHK-123456
-2026-01-15,Utility Bill - Electric Co.,-124.50,Withdrawal,2532.93,CHK-123456
-2026-01-18,Refund - Amazon,-15.99,Deposit,2548.92,CHK-123456
-2026-01-20,Rent Payment,-1200.00,Withdrawal,1348.92,CHK-123456
-2026-01-22,ATM Withdrawal,-60.00,Withdrawal,1288.92,CHK-123456
-2026-01-25,Freelance Payment,+750.00,Deposit,2038.92,CHK-123456
-2026-01-28,Netflix Subscription,-15.49,Withdrawal,2023.43,CHK-123456
-2026-02-01,Interest Earned,+2.15,Deposit,2025.58,CHK-123456
+transaction_id,account_id,transaction_date,posting_date,amount,currency,description,merchant_name,merchant_category_code,category,subcategory,transaction_type,is_recurring,enriched_label,location_city,location_state,location_country,reference_number,balance_after_transaction,label_source
+TXN000001,ACCT1001,2023-01-06,2023-01-07,-84.32,USD,AMAZON MKTPLACE PMTS 1234,Amazon,5942,Shopping,Online Retail,debit,false,Shopping - Amazon Purchase,Dallas,TX,US,RFAMZ123456,1845.68,human
+TXN000002,ACCT1002,2023-01-31,2023-02-01,3200,USD,PAYROLL DIRECT DEP 5678,Acme Corp,,Income,Salary,deposit,true,Income - Salary Payment,New York,NY,US,RFDEP8765432,5045.68,human
+TXN000003,ACCT2001,2023-01-11,2023-01-12,-9.99,EUR,SPOTIFY SUBSCRIPTION 4321,Spotify,5735,Entertainment,Music Streaming,payment,true,Entertainment - Spotify Recurring,Berlin,,DE,RFSPT987654,1212.41,ai
+TXN000004,ACCT1003,2023-01-09,2023-01-09,-126.45,USD,WALMART SUPERCENTER #1288,Walmart,5411,Groceries,Supermarkets,debit,false,Groceries - Walmart,Chicago,IL,US,RFWMT102938,1390.12,human
+TXN000005,ACCT1004,2023-01-05,2023-01-06,-65,USD,PLANET FITNESS MONTHLY FEE,Planet Fitness,7997,Health,Gym Membership,payment,true,Health - Planet Fitness Recurring,Miami,FL,US,RFPF765432,923.87,ai
+TXN000006,ACCT1001,2023-01-10,2023-01-10,-45.76,USD,UBER TRIP 0912,Uber,4121,Transport,Rideshare,debit,false,Transport - Uber Ride,Los Angeles,CA,US,RFUBR384756,1799.92,human
+TXN000007,ACCT2002,2023-01-14,2023-01-15,-76.2,EUR,LUFTHANSA AIR TICKET 001,Lufthansa,4511,Travel,Airlines,payment,false,Travel - Lufthansa Flight,Frankfurt,,DE,RFLFT234567,1136.21,ai
+TXN000008,ACCT1005,2023-01-03,2023-01-04,-2500,USD,RENT PAYMENT JAN 2023,Sunrise Apartments,,Housing,Rent,payment,true,Housing - Monthly Rent,Seattle,WA,US,RFREN998877,2000,human
+TXN000009,ACCT1006,2023-01-08,2023-01-09,-82.14,USD,WHOLE FOODS MARKET 0456,Whole Foods,5411,Groceries,Organic Grocers,debit,false,Groceries - Whole Foods,San Francisco,CA,US,RFWHO234987,1917.86,human
+TXN000010,ACCT3001,2023-01-04,2023-01-05,-12.99,USD,APPLE.COM/BILL 1122,Apple,5734,Entertainment,App Store,payment,true,Entertainment - Apple Subscription,Dallas,TX,US,RFAPL445566,877.01,ai

@@ -16,12 +16,12 @@ public class TransactionProvider {
 
     //Data sources
     private directObjectsPipeline objectData = new directObjectsPipeline();
-    private csvPipeline xmlData = new csvPipeline();
+    private csvPipeline csvData = new csvPipeline();
     private jsonPipeline jsonData = new jsonPipeline();
 
     public void aggregateData(){
         rawTransactionFiles.addAll(objectData.getSampleTransactions());
-        rawTransactionFiles.addAll(xmlData.getTransactions());
+        rawTransactionFiles.addAll(csvData.getTransactions());
         rawTransactionFiles.addAll(jsonData.getTransactions());
     }
 

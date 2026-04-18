@@ -44,6 +44,7 @@ public class csvPipeline {
                     .map(this::parseRecordToTransaction)
                     .collect(Collectors.toList());
 
+            System.out.println("✅ Successfully parsed " + transactions.size() + " transactions from bank_records.csv");
             return transactions;
 
         } catch (IOException e) {
@@ -53,36 +54,39 @@ public class csvPipeline {
 
     private transaction parseRecordToTransaction(CSVRecord record) {
         try {
-            String dateStr = record.get("Date");
-            String description = record.get("Description");
-            String amountStr = record.get("Amount");
-            String account = record.get("Account");
+            String accountId       = record.get("account_id");
+            String transactionDate = record.get("transaction_date");
+            String amountStr       = record.get("amount");
+            String description     = record.get("description");
+            String merchantName    = record.get("merchant_name");
+            String transactionType = record.get("transaction_type");
 
-            LocalDate localDate = LocalDate.parse(dateStr, DATE_FORMATTER);
+            // Parse date
+            LocalDate localDate = LocalDate.parse(transactionDate.trim(), DATE_FORMATTER);
             Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
             double amount = parseAmount(amountStr);
 
             return new transactionImpl(
-                    account,
+                    accountId.trim(),
                     amount,
                     date,
-                    description,
-                    bankOrMerchant(),
-                    ""
+                    description != null ? description.trim() : "",
+                    merchantName != null ? merchantName.trim() : "N/A",
+                    transactionType != null ? transactionType.trim() : ""
             );
 
         } catch (Exception e) {
-            throw new RuntimeException("Error parsing CSV record at line " + record.getRecordNumber() + ": " + record, e);
+            throw new RuntimeException("Error parsing CSV record at line " + record.getRecordNumber()
+                    + ": " + record, e);
         }
     }
 
     private double parseAmount(String amountStr) {
-        String cleaned = amountStr.trim().replace("+", "").replace(",", "");
+        if (amountStr == null || amountStr.trim().isEmpty()) {
+            return 0.0;
+        }
+        String cleaned = amountStr.trim().replace(",", "");
         return Double.parseDouble(cleaned);
-    }
-
-    private String bankOrMerchant() {
-        return "N/A";
     }
 }
