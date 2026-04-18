@@ -10,11 +10,8 @@ import java.io.IOException;
 @SpringBootApplication
 public class TransactionAggregationApiApplication {
 
-	static program application = new program();
-
 	public static void main(String[] args){
 		SpringApplication.run(TransactionAggregationApiApplication.class, args);
-		application.run();
 	}
 
 }

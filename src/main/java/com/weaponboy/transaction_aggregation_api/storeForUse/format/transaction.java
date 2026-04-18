@@ -1,4 +1,4 @@
-package com.weaponboy.transaction_aggregation_api.categorizingAndSorting.format;
+package com.weaponboy.transaction_aggregation_api.storeForUse.format;
 
 import java.util.Date;
 
@@ -13,4 +13,6 @@ public interface transaction {
     String merchant();
 
     String bank();
+
+    String description();
 }

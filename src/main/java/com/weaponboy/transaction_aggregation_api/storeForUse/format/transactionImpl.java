@@ -1,4 +1,4 @@
-package com.weaponboy.transaction_aggregation_api.categorizingAndSorting.format;
+package com.weaponboy.transaction_aggregation_api.storeForUse.format;
 
 import java.util.*;
 
@@ -9,13 +9,15 @@ public class transactionImpl implements transaction {
     private final Date date;
     private final String merchant;
     private final String bank;
+    private final String description;
 
-    public transactionImpl(String customerName, double transactionAmount, Date date, String merchant, String bank) {
+    public transactionImpl(String customerName, double transactionAmount, Date date, String merchant, String bank, String description) {
         this.customerName = customerName;
         this.transactionAmount = transactionAmount;
         this.date = date;
         this.merchant = merchant;
         this.bank = bank;
+        this.description = description;
     }
 
     @Override
@@ -41,5 +43,10 @@ public class transactionImpl implements transaction {
     @Override
     public String bank() {
         return bank;
+    }
+
+    @Override
+    public String description() {
+        return description;
     }
 }
