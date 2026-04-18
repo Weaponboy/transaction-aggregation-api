@@ -9,7 +9,7 @@ import java.util.Date;
 public class TransactionEntity {
 
     @Id
-    private String customerName;
+    private String account;
     private double amount;
     private Date date;
     private String merchant;
@@ -48,12 +48,12 @@ public class TransactionEntity {
         this.amount = amount;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getAccount() {
+        return account;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getDescription() {

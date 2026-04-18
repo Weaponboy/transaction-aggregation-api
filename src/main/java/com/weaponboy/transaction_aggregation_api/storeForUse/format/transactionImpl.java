@@ -4,15 +4,15 @@ import java.util.*;
 
 public class transactionImpl implements transaction {
 
-    private final String customerName;
+    private final String account;
     private final double transactionAmount;
     private final Date date;
     private final String merchant;
     private final String bank;
     private final String description;
 
-    public transactionImpl(String customerName, double transactionAmount, Date date, String merchant, String bank, String description) {
-        this.customerName = customerName;
+    public transactionImpl(String account, double transactionAmount, Date date, String merchant, String bank, String description) {
+        this.account = account;
         this.transactionAmount = transactionAmount;
         this.date = date;
         this.merchant = merchant;
@@ -21,8 +21,8 @@ public class transactionImpl implements transaction {
     }
 
     @Override
-    public String customerName() {
-        return customerName;
+    public String account() {
+        return account;
     }
 
     @Override

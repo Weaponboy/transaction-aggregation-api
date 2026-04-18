@@ -4,7 +4,7 @@ import java.util.Date;
 
 public interface transaction {
 
-    String customerName();
+    String account();
 
     double transactionAmount();
 

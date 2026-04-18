@@ -31,8 +31,8 @@ public class TransactionService {
     }
 
     // Updated methods
-    public List<TransactionEntity> findByCustomerName(String customerName) {
-        return repository.findByCustomerName(customerName);
+    public List<TransactionEntity> findByAccount(String account) {
+        return repository.findByAccount(account);
     }
 
     public List<TransactionEntity> findByAmountGreaterThan(double amount) {

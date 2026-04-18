@@ -22,8 +22,6 @@ public class transactionReturnAPI {
         this.service = service;
     }
 
-    // ==================== Basic CRUD ====================
-
     @PostMapping
     public ResponseEntity<String> save(@RequestBody List<TransactionEntity> transactions) {
         if (transactions == null || transactions.isEmpty()) {
@@ -56,9 +54,9 @@ public class transactionReturnAPI {
 
     // ==================== Query by specific fields ====================
 
-    @GetMapping("/customer/{customerName}")
-    public List<TransactionEntity> getByCustomerName(@PathVariable String customerName) {
-        return service.findByCustomerName(customerName);
+    @GetMapping("/account/{account}")
+    public List<TransactionEntity> getByAccountName(@PathVariable String account) {
+        return service.findByAccount(account);
     }
 
     @GetMapping("/merchant/{merchant}")
