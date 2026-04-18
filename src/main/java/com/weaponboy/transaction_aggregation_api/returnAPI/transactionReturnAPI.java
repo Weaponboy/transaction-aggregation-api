@@ -92,9 +92,9 @@ public class transactionReturnAPI {
 
     // ==================== Single Transaction ====================
 
-    @GetMapping("/{customerName}")
-    public ResponseEntity<TransactionEntity> getById(@PathVariable String customerName) {
-        return service.findById(customerName)  // You'll need to add this in Service
+    @GetMapping("/{account}")
+    public ResponseEntity<TransactionEntity> getById(@PathVariable String account) {
+        return service.findById(account)  // You'll need to add this in Service
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

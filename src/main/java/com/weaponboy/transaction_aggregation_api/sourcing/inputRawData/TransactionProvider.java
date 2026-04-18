@@ -1,5 +1,6 @@
 package com.weaponboy.transaction_aggregation_api.sourcing.inputRawData;
 
+import com.weaponboy.transaction_aggregation_api.sourcing.sources.xmlPipeline;
 import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.directObjectsPipeline;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,15 @@ public class TransactionProvider {
     private ArrayList<transaction> rawTransactionFiles = new ArrayList<>();
 
     //Data sources
-    private directObjectsPipeline data1 = new directObjectsPipeline();
+    private directObjectsPipeline objectData = new directObjectsPipeline();
+    private xmlPipeline xmlData = new xmlPipeline();
 
     public void aggregateData(){
-        rawTransactionFiles.addAll(data1.getSampleTransactions());
+        rawTransactionFiles.addAll(objectData.getSampleTransactions());
+        List<transaction> raw = xmlData.getTransactions();
+        System.out.println("Total transactions loaded: " + raw.size());
+        raw.forEach(t -> System.out.println(t.account()));
+        rawTransactionFiles.addAll(xmlData.getTransactions());
     }
 
     public List<transaction> getTransactions() {

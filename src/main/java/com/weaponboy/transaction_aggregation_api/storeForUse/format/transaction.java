@@ -4,6 +4,8 @@ import java.util.Date;
 
 public interface transaction {
 
+    Long id();
+
     String account();
 
     double transactionAmount();

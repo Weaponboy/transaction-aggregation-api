@@ -4,6 +4,7 @@ import java.util.*;
 
 public class transactionImpl implements transaction {
 
+    private Long id;
     private final String account;
     private final double transactionAmount;
     private final Date date;
@@ -18,6 +19,11 @@ public class transactionImpl implements transaction {
         this.merchant = merchant;
         this.bank = bank;
         this.description = description;
+    }
+
+    @Override
+    public Long id() {
+        return id;
     }
 
     @Override

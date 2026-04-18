@@ -32,7 +32,7 @@ public class csvPipeline {
      * Load CSV from resources folder.
      *
      * Example:
-     * process("mockData/data1/transaction_data.csv");
+     * process("mockData/data1.csv/transaction_data.csv");
      */
     public List<Transaction> process(String resourcePath) throws Exception {
 

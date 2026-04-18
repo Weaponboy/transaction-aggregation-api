@@ -8,13 +8,23 @@ import java.util.Date;
 @Table(name = "transactions")
 public class TransactionEntity {
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   // ← Auto-increment ID
+    private Long id;
     private String account;
     private double amount;
     private Date date;
     private String merchant;
     private String bank;
     private String description;
+
+    public Long getId() {
+        return id;
+    }
 
     public Date getDate() {
         return date;

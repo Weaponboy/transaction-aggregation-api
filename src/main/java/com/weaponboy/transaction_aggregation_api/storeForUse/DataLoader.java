@@ -28,6 +28,7 @@ public class DataLoader implements CommandLineRunner {
         List<TransactionEntity> entities = raw.stream()
                 .map(t -> {
                     TransactionEntity e = new TransactionEntity();
+                    e.setId(t.id());
                     e.setAccount(t.account());
                     e.setAmount(t.transactionAmount());
                     e.setDate(t.date());
