@@ -1,7 +1,7 @@
 package com.weaponboy.transaction_aggregation_api.sourcing.inputRawData;
 
 import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
-import com.weaponboy.transaction_aggregation_api.sourcing.sources.hardcodeObjectsTesting;
+import com.weaponboy.transaction_aggregation_api.sourcing.sources.directObjectsPipeline;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class TransactionProvider {
     private ArrayList<transaction> rawTransactionFiles = new ArrayList<>();
 
     //Data sources
-    private hardcodeObjectsTesting data1 = new hardcodeObjectsTesting();
+    private directObjectsPipeline data1 = new directObjectsPipeline();
 
     public void aggregateData(){
         rawTransactionFiles.addAll(data1.getSampleTransactions());
