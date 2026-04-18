@@ -1,0 +1,12 @@
+Date,Description,Amount,Type,Balance,Account
+2026-01-05,Salary Deposit - Acme Corp,+2500.00,Deposit,3250.50,CHK-123456
+2026-01-07,Starbucks Coffee,-5.75,Withdrawal,3244.75,CHK-123456
+2026-01-10,Online Transfer to Savings,-500.00,Transfer,2744.75,CHK-123456
+2026-01-12,Grocery Store - Whole Foods,-87.32,Withdrawal,2657.43,CHK-123456
+2026-01-15,Utility Bill - Electric Co.,-124.50,Withdrawal,2532.93,CHK-123456
+2026-01-18,Refund - Amazon,-15.99,Deposit,2548.92,CHK-123456
+2026-01-20,Rent Payment,-1200.00,Withdrawal,1348.92,CHK-123456
+2026-01-22,ATM Withdrawal,-60.00,Withdrawal,1288.92,CHK-123456
+2026-01-25,Freelance Payment,+750.00,Deposit,2038.92,CHK-123456
+2026-01-28,Netflix Subscription,-15.49,Withdrawal,2023.43,CHK-123456
+2026-02-01,Interest Earned,+2.15,Deposit,2025.58,CHK-123456
