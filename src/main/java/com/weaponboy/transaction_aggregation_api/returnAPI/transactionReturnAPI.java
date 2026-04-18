@@ -103,13 +103,13 @@ public class transactionReturnAPI {
 
     @GetMapping("/filter")
     public List<TransactionEntity> filterTransactions(
-            @RequestParam(required = false) String customerName,
+            @RequestParam(required = false) String account,
             @RequestParam(required = false) String bank,
             @RequestParam(required = false) String merchant,
             @RequestParam(required = false) Double minAmount) {
 
-        if (customerName != null) {
-            return service.findByCustomerName(customerName);
+        if (account != null) {
+            return service.findByAccount(account);
         }
         if (bank != null) {
             return service.findByBank(bank);
