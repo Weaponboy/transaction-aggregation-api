@@ -18,7 +18,6 @@ public interface TransactionRepository extends JpaRepository<TransactionEntity, 
 
     List<TransactionEntity> findByAmountBetween(double minAmount, double maxAmount);
 
-    // Correct date method (field is called "date")
     List<TransactionEntity> findByDateBetween(Date startDate, Date endDate);
 
     List<TransactionEntity> findByMerchant(String merchant);

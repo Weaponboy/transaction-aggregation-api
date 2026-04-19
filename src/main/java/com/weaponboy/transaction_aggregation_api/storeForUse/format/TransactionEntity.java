@@ -13,7 +13,7 @@ public class TransactionEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)   // ← Auto-increment ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String account;
     private double amount;

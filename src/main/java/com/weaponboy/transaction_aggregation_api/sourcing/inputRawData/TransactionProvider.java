@@ -14,7 +14,6 @@ public class TransactionProvider {
 
     private ArrayList<transaction> rawTransactionFiles = new ArrayList<>();
 
-    //Data sources
     private directObjectsPipeline objectData = new directObjectsPipeline();
     private csvPipeline csvData = new csvPipeline();
     private jsonPipeline jsonData = new jsonPipeline();

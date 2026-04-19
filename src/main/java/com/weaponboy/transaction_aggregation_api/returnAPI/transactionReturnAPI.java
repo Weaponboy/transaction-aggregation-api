@@ -36,13 +36,11 @@ public class transactionReturnAPI {
         return service.returnAllTransactions();
     }
 
-    // ==================== Pagination + Sorting (Best for large datasets) ====================
-
     @GetMapping("/paged")
     public Page<TransactionEntity> getAllPaged(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size,
-            @RequestParam(defaultValue = "date") String sortBy,      // default sort by date
+            @RequestParam(defaultValue = "date") String sortBy,
             @RequestParam(defaultValue = "desc") String direction) {
 
         Sort.Direction dir = direction.equalsIgnoreCase("asc")
@@ -51,8 +49,6 @@ public class transactionReturnAPI {
         Pageable pageable = PageRequest.of(page, size, Sort.by(dir, sortBy));
         return service.getTransactionsPaginated(pageable);
     }
-
-    // ==================== Query by specific fields ====================
 
     @GetMapping("/account/{account}")
     public List<TransactionEntity> getByAccountName(@PathVariable String account) {
@@ -74,8 +70,6 @@ public class transactionReturnAPI {
         return service.findByAmountGreaterThan(amount);
     }
 
-    // ==================== Date Range Query (Fixed for your entity) ====================
-
     @GetMapping("/date/range")
     public List<TransactionEntity> getByDateRange(
             @RequestParam Date startDate,
@@ -83,23 +77,17 @@ public class transactionReturnAPI {
         return service.findByDateBetween(startDate, endDate);
     }
 
-    // ==================== Search ====================
-
     @GetMapping("/search")
     public List<TransactionEntity> search(@RequestParam String keyword) {
         return service.searchByDescription(keyword);
     }
 
-    // ==================== Single Transaction ====================
-
     @GetMapping("/{account}")
     public ResponseEntity<TransactionEntity> getById(@PathVariable String account) {
-        return service.findById(account)  // You'll need to add this in Service
+        return service.findById(account)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-
-    // ==================== Simple Filter (Multiple params) ====================
 
     @GetMapping("/filter")
     public List<TransactionEntity> filterTransactions(

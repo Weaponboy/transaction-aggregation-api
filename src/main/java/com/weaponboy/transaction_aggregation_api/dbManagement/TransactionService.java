@@ -30,7 +30,6 @@ public class TransactionService {
         return repository.findAll(pageable);
     }
 
-    // Updated methods
     public List<TransactionEntity> findByAccount(String account) {
         return repository.findByAccount(account);
     }
