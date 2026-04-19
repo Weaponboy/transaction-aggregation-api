@@ -44,7 +44,6 @@ public class csvPipeline {
                     .map(this::parseRecordToTransaction)
                     .collect(Collectors.toList());
 
-            System.out.println("✅ Successfully parsed " + transactions.size() + " transactions from bank_records.csv");
             return transactions;
 
         } catch (IOException e) {
@@ -72,7 +71,7 @@ public class csvPipeline {
                     amount,
                     date,
                     description != null ? description.trim() : "",
-                    merchantName != null ? merchantName.trim() : "N/A",
+                    "N/A",
                     transactionType != null ? transactionType.trim() : ""
             );
 
