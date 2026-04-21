@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -37,11 +39,11 @@ public class TransactionService {
         return repository.findByAccount(account);
     }
 
-    public List<TransactionEntity> findByAmountGreaterThan(double amount) {
+    public List<TransactionEntity> findByAmountGreaterThan(BigDecimal amount) {
         return repository.findByAmountGreaterThan(amount);
     }
 
-    public List<TransactionEntity> findByDateBetween(Date start, Date end) {
+    public List<TransactionEntity> findByDateBetween(LocalDate start, LocalDate end) {
         return repository.findByDateBetween(start, end);
     }
 

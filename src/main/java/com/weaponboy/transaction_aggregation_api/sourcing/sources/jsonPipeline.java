@@ -8,6 +8,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class jsonPipeline {
             String id          = node.path("id").asText();
             String accountId   = node.path("account_id").asText();
             String type        = node.path("type").asText();
-            double amount      = node.path("amount").asDouble();
+            BigDecimal amount  = BigDecimal.valueOf(node.path("amount").asDouble());
             String currency    = node.path("currency").asText();
             String description = node.path("description").asText();
             String category    = node.path("category").asText();
@@ -61,12 +62,11 @@ public class jsonPipeline {
             String status      = node.path("status").asText();
 
             LocalDate localDate = LocalDate.parse(dateStr);
-            Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
             return new transactionImpl(
                     accountId,
                     amount,
-                    date,
+                    localDate,
                     description,
                     "N/A",
                     type

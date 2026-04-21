@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,11 +19,11 @@ public interface TransactionRepository extends JpaRepository<TransactionEntity, 
 
     List<TransactionEntity> findByAccount(String account);
 
-    List<TransactionEntity> findByAmountGreaterThan(double amount);
+    List<TransactionEntity> findByAmountGreaterThan(BigDecimal amount);
 
     List<TransactionEntity> findByAmountBetween(double minAmount, double maxAmount);
 
-    List<TransactionEntity> findByDateBetween(Date startDate, Date endDate);
+    List<TransactionEntity> findByDateBetween(LocalDate startDate, LocalDate endDate);
 
     List<TransactionEntity> findByMerchant(String merchant);
 

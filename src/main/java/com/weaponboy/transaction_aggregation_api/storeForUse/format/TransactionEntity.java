@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -29,7 +30,7 @@ public class TransactionEntity {
 
     @NotNull(message = "Date is required")
     @PastOrPresent(message = "Transaction date cannot be in the future")
-    private Date date;
+    private LocalDate date;
 
     @Size(max = 500, message = "Description too long")
     private String description;
@@ -42,11 +43,11 @@ public class TransactionEntity {
         return id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -66,11 +67,11 @@ public class TransactionEntity {
         this.bank = bank;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

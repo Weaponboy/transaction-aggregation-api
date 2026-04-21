@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -61,10 +62,9 @@ public class csvPipeline {
             String transactionType = record.get("transaction_type");
 
             // Parse date
-            LocalDate localDate = LocalDate.parse(transactionDate.trim(), DATE_FORMATTER);
-            Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            LocalDate date = LocalDate.parse(transactionDate.trim(), DATE_FORMATTER);
 
-            double amount = parseAmount(amountStr);
+            BigDecimal amount = BigDecimal.valueOf(parseAmount(amountStr));
 
             return new transactionImpl(
                     accountId.trim(),

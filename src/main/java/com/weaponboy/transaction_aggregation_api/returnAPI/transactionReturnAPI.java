@@ -11,6 +11,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -59,15 +61,15 @@ public class transactionReturnAPI {
     }
 
     @GetMapping("/amount/greater-than")
-    public List<TransactionEntity> getByAmountGreaterThan(@RequestParam double amount) {
+    public List<TransactionEntity> getByAmountGreaterThan(@RequestParam BigDecimal amount) {
         return service.findByAmountGreaterThan(amount);
     }
 
     @GetMapping("/date/range")
     public List<TransactionEntity> getByDateRange(
-            @RequestParam Date startDate,
-            @RequestParam Date endDate) {
-        if (startDate.after(endDate)) {
+            @RequestParam LocalDate startDate,
+            @RequestParam LocalDate endDate) {
+        if (startDate.isAfter(endDate)) {
             throw new IllegalArgumentException("startDate must be before or equal to endDate");
         }
         return service.findByDateBetween(startDate, endDate);
@@ -83,7 +85,7 @@ public class transactionReturnAPI {
             @RequestParam(required = false) String account,
             @RequestParam(required = false) String bank,
             @RequestParam(required = false) String merchant,
-            @RequestParam(required = false) Double minAmount) {
+            @RequestParam(required = false) BigDecimal minAmount) {
 
         if (account == null && bank == null && merchant == null && minAmount == null) {
             throw new IllegalArgumentException("At least one filter parameter must be inputted");

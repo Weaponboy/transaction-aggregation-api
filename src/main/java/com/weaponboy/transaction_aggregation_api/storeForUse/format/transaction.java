@@ -1,6 +1,7 @@
 package com.weaponboy.transaction_aggregation_api.storeForUse.format;
 
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public interface transaction {
 
@@ -8,9 +9,9 @@ public interface transaction {
 
     String account();
 
-    double transactionAmount();
+    BigDecimal transactionAmount();
 
-    Date date();
+    LocalDate date();
 
     String merchant();
 
