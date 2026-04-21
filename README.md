@@ -25,10 +25,71 @@ Frameworks (And why I made the decision to use them):
   * Used for its small footprint, easy setup and fast data access speeds
 
 API Calls:
+## Transactions API Summary
+This REST controller exposes endpoints for retrieving and filtering stored transaction data.
 
+### Base URL
+`/transactions`
 
+## Endpoints
 
-My aims with this project: 
+### `GET /transactions`
+Returns **all transactions** in the database.
+
+### `GET /transactions/paged`
+Returns transactions in **paginated format**.
+
+#### Query Parameters
+- `page` → Page number (default `0`)
+- `size` → Items per page (default `20`)
+- `sortBy` → Field to sort by (default `date`)
+- `direction` → `asc` or `desc` (default `desc`)
+
+### `GET /transactions/account`
+Returns transactions for a specific **account name/number**.
+
+### `GET /transactions/merchant`
+Returns transactions for a specific **merchant**.
+
+### `GET /transactions/bank`
+Returns transactions for a specific **bank**.
+
+### `GET /transactions/amount/greater-than`
+Returns transactions where the amount is **greater than the provided value**.
+
+#### Query Parameters
+- `amount`
+
+### `GET /transactions/date/range`
+Returns transactions between two dates.
+
+#### Query Parameters
+- `startDate`
+- `endDate`
+
+### `GET /transactions/searchDescription`
+Searches transactions where the description contains a keyword.
+
+#### Query Parameters
+- `keyword`
+
+### `GET /transactions/filter`
+Flexible filtering endpoint. Returns transactions based on the **first provided parameter**.
+
+#### Optional Query Parameters
+- `account`
+- `bank`
+- `merchant`
+- `minAmount`
+
+## Features
+- Retrieve all transactions
+- Pagination and sorting support
+- Search by merchant, bank, account, description
+- Filter by amount or date range
+- Designed for transaction aggregation systems
+
+## My aims with this project: 
 I wanted to create a program that completes the assigned task in an efficient, simple and scalable manner. For example 
 the code is modular and easy to upgrade any function/framework without an entire codebase refactor. I wanted to focus on 
 coding fundamentals and allow space for easy upgrades if wanted. For example adding an ML data pipeline that can input data 
