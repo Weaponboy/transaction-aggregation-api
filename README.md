@@ -24,14 +24,19 @@ Frameworks (And why I made the decision to use them):
 * H2 in memory database
   * Used for its small footprint, easy setup and fast data access speeds
 
+API Calls:
+
+
+
+My aims with this project: 
+I wanted to create a program that completes the assigned task in an efficient, simple and scalable manner. For example 
+the code is modular and easy to upgrade any function/framework without an entire codebase refactor. I wanted to focus on 
+coding fundamentals and allow space for easy upgrades if wanted. For example adding an ML data pipeline that can input data 
+for many formats instead of being restricted to one.
+
 Mock data sources:
 
 CSV: https://datafactory.gomask.ai/dashboard/community/transaction-categorization-dataset
 
 Json: https://jsonlint.com/datasets/mock-transactions
 
-Thoughts: 
-Even though I didn't have experience with some of these frameworks before this project I am confident 
-I have created a program that completes the assigned task in an efficient and scalable manner for example 
-code is modular and easy to upgrade any function/frame without an entire codebase refactor being needed.
-This project allows a simple upgradable base for more complex functions as user requirements change.

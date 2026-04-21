@@ -1,26 +1,42 @@
 package com.weaponboy.transaction_aggregation_api.storeForUse.format;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 @Table(name = "transactions")
 public class TransactionEntity {
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Account name is required")
     private String account;
-    private double amount;
-    private Date date;
+
+    @NotBlank(message = "Merchant is required")
     private String merchant;
+
+    @NotBlank(message = "Bank is required")
     private String bank;
+
+    @NotNull(message = "Amount is required")
+    @PositiveOrZero(message = "Amount must be zero or positive")
+    private BigDecimal amount;
+
+    @NotNull(message = "Date is required")
+    @PastOrPresent(message = "Transaction date cannot be in the future")
+    private Date date;
+
+    @Size(max = 500, message = "Description too long")
     private String description;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;

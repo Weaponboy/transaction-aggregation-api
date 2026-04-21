@@ -2,6 +2,8 @@ package com.weaponboy.transaction_aggregation_api.returnAPI;
 
 import com.weaponboy.transaction_aggregation_api.dbManagement.TransactionService;
 import com.weaponboy.transaction_aggregation_api.storeForUse.format.TransactionEntity;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -42,7 +44,7 @@ public class transactionReturnAPI {
     }
 
     @GetMapping("/account/{account}")
-    public List<TransactionEntity> getByAccountName(@PathVariable String account) {
+    public List<TransactionEntity> getByAccountName(@PathVariable @NotBlank String account) {
         return service.findByAccount(account);
     }
 
@@ -65,11 +67,14 @@ public class transactionReturnAPI {
     public List<TransactionEntity> getByDateRange(
             @RequestParam Date startDate,
             @RequestParam Date endDate) {
+        if (startDate.after(endDate)) {
+            throw new IllegalArgumentException("startDate must be before or equal to endDate");
+        }
         return service.findByDateBetween(startDate, endDate);
     }
 
     @GetMapping("/searchDescription")
-    public List<TransactionEntity> search(@RequestParam String keyword) {
+    public List<TransactionEntity> search(@RequestParam @NotBlank String keyword) {
         return service.searchByDescription(keyword);
     }
 
@@ -79,6 +84,10 @@ public class transactionReturnAPI {
             @RequestParam(required = false) String bank,
             @RequestParam(required = false) String merchant,
             @RequestParam(required = false) Double minAmount) {
+
+        if (account == null && bank == null && merchant == null && minAmount == null) {
+            throw new IllegalArgumentException("At least one filter parameter must be inputted");
+        }
 
         if (account != null) {
             return service.findByAccount(account);
@@ -96,12 +105,4 @@ public class transactionReturnAPI {
         return service.returnAllTransactions();
     }
 
-    @PostMapping
-    public ResponseEntity<String> save(@RequestBody List<TransactionEntity> transactions) {
-        if (transactions == null || transactions.isEmpty()) {
-            return ResponseEntity.badRequest().body("No transactions provided");
-        }
-        service.saveTransactions(transactions);
-        return ResponseEntity.ok("Successfully saved " + transactions.size() + " transactions.");
-    }
 }
