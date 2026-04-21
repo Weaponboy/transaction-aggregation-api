@@ -46,7 +46,7 @@ public class transactionReturnAPI {
     }
 
     @GetMapping("/account/{account}")
-    public List<TransactionEntity> getByAccountName(@PathVariable @NotBlank String account) {
+    public List<TransactionEntity> getByAccountName(@PathVariable String account) {
         return service.findByAccount(account);
     }
 
@@ -75,8 +75,8 @@ public class transactionReturnAPI {
         return service.findByDateBetween(startDate, endDate);
     }
 
-    @GetMapping("/searchDescription")
-    public List<TransactionEntity> search(@RequestParam @NotBlank String keyword) {
+    @GetMapping("/search")
+    public List<TransactionEntity> search(@RequestParam String keyword) {
         return service.searchByDescription(keyword);
     }
 
