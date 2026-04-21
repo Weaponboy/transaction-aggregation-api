@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Collection of methods used to sort and query the data in the database for the API
+ * */
 @Repository
 public interface TransactionRepository extends JpaRepository<TransactionEntity, String>,
         JpaSpecificationExecutor<TransactionEntity> {

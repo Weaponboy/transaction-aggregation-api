@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Exposes transaction repository methods to
+ * */
 @Service
 public class TransactionService {
 

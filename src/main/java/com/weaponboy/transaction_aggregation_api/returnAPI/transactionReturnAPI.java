@@ -22,15 +22,6 @@ public class transactionReturnAPI {
         this.service = service;
     }
 
-    @PostMapping
-    public ResponseEntity<String> save(@RequestBody List<TransactionEntity> transactions) {
-        if (transactions == null || transactions.isEmpty()) {
-            return ResponseEntity.badRequest().body("No transactions provided");
-        }
-        service.saveTransactions(transactions);
-        return ResponseEntity.ok("Successfully saved " + transactions.size() + " transactions.");
-    }
-
     @GetMapping
     public List<TransactionEntity> getAll() {
         return service.returnAllTransactions();
@@ -77,16 +68,9 @@ public class transactionReturnAPI {
         return service.findByDateBetween(startDate, endDate);
     }
 
-    @GetMapping("/search")
+    @GetMapping("/searchDescription")
     public List<TransactionEntity> search(@RequestParam String keyword) {
         return service.searchByDescription(keyword);
-    }
-
-    @GetMapping("/{account}")
-    public ResponseEntity<TransactionEntity> getById(@PathVariable String account) {
-        return service.findById(account)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/filter")
@@ -110,5 +94,14 @@ public class transactionReturnAPI {
         }
 
         return service.returnAllTransactions();
+    }
+
+    @PostMapping
+    public ResponseEntity<String> save(@RequestBody List<TransactionEntity> transactions) {
+        if (transactions == null || transactions.isEmpty()) {
+            return ResponseEntity.badRequest().body("No transactions provided");
+        }
+        service.saveTransactions(transactions);
+        return ResponseEntity.ok("Successfully saved " + transactions.size() + " transactions.");
     }
 }

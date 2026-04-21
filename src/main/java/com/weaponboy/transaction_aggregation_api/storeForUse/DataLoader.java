@@ -2,12 +2,16 @@ package com.weaponboy.transaction_aggregation_api.storeForUse;
 
 import com.weaponboy.transaction_aggregation_api.storeForUse.format.TransactionEntity;
 import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
-import com.weaponboy.transaction_aggregation_api.sourcing.inputRawData.TransactionProvider;
+import com.weaponboy.transaction_aggregation_api.sourcing.inputData.TransactionProvider;
 import com.weaponboy.transaction_aggregation_api.dbManagement.TransactionService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
+/**
+ * Makes use of a Spring Boot component to store aggregated data
+ * */
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -40,6 +44,6 @@ public class DataLoader implements CommandLineRunner {
                 .toList();
 
         service.saveTransactions(entities);
-        System.out.println("Data loaded: " + entities.size());
+        System.out.println("Number of transactions loaded: " + entities.size());
     }
 }

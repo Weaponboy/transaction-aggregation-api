@@ -1,4 +1,4 @@
-package com.weaponboy.transaction_aggregation_api.sourcing.inputRawData;
+package com.weaponboy.transaction_aggregation_api.sourcing.inputData;
 
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.csvPipeline;
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.jsonPipeline;
@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Spring Boot service to collect data from pipeline classes to be stored and indexed
+ * */
 @Service
 public class TransactionProvider {
 
