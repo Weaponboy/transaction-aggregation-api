@@ -12,8 +12,10 @@ How to run/build:
 * Clone project using git CLI or download GitHub zip
 * Open project in intellij and allow gradle to sync
 * Make sure docker desktop is installed and running
-* Then run **docker build -t transaction-aggregation-api:latest .** to build the Docker Image
-* Once the image is built run **docker run -p 8080:8080 transaction-aggregation-api:latest** to start the container
+* Then run this command to build the Docker Image
+  * **docker build -t transaction-aggregation-api:latest .** 
+* Once the image is built run the command below to start the container
+  * **docker run -p 8080:8080 transaction-aggregation-api:latest** 
 * You can then access the Swagger API UI at http://localhost:8080/swagger-ui/
 
 Frameworks (And why I made the decision to use them):
