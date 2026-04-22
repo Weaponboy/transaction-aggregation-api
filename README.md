@@ -3,10 +3,10 @@
 ## Aggregates and stores csv and json data in an H2 in memory database with a Swagger rest API for retrieving and using the data
 
 This project runs as a Docker container and is built to aggregate and store mock bank transactions temporally for use and analysis
-* It uses mock data sources in the form of a CSV and json file I found online
+* It uses mock data sources in the form of a csv and json file I found online
 * The transactions are then parsed into an array of transaction objects
 * Transaction objects are then stored in a H2 in memory database for fast data access
-* Stored transactions can then be retrieved/sorted with swagger API calls
+* Stored transactions can then be retrieved/sorted with Swagger API calls
 
 How to run/build:
 * Clone project using git CLI or download GitHub zip
@@ -24,14 +24,7 @@ Frameworks (And why I made the decision to use them):
 * H2 in memory database
   * Used for its small footprint, easy setup and fast data access speeds
 
-API Calls:
-## Transactions API Summary
-This REST controller exposes endpoints for retrieving and filtering stored transaction data.
-
-### Base URL
-`/transactions`
-
-## Endpoints
+## API Calls:
 
 ### `GET /transactions`
 Returns **all transactions** in the database.
@@ -87,15 +80,14 @@ Flexible filtering endpoint. Returns transactions based on the **first provided 
 - Pagination and sorting support
 - Search by merchant, bank, account, description
 - Filter by amount or date range
-- Designed for transaction aggregation systems
 
 ## My aims with this project: 
 I wanted to create a program that completes the assigned task in an efficient, simple and scalable manner. For example 
-the code is modular and easy to upgrade any function/framework without an entire codebase refactor. I wanted to focus on 
+the code is modular making it easy to upgrade any function/framework without an entire codebase refactor. I wanted to focus on 
 coding fundamentals and allow space for easy upgrades if wanted. For example adding an ML data pipeline that can input data 
-for many formats instead of being restricted to one.
+for many formats instead of being restricted to one hardcoded per pipeline.
 
-Mock data sources:
+## Mock data sources:
 
 CSV: https://datafactory.gomask.ai/dashboard/community/transaction-categorization-dataset
 
