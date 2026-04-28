@@ -1,19 +1,15 @@
-package com.weaponboy.transaction_aggregation_api.returnAPI;
+package com.weaponboy.transaction_aggregation_api.API;
 
-import com.weaponboy.transaction_aggregation_api.dbManagement.TransactionService;
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.TransactionEntity;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
+import com.weaponboy.transaction_aggregation_api.storage.sorting.TransactionService;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.TransactionEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @RestController

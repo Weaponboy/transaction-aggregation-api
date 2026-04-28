@@ -1,12 +1,11 @@
 package com.weaponboy.transaction_aggregation_api.sourcing.sources;
 
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transactionImpl;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transactionImpl;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class directObjectsPipeline {

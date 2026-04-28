@@ -2,17 +2,15 @@ package com.weaponboy.transaction_aggregation_api.sourcing.sources;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transactionImpl;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transactionImpl;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Component

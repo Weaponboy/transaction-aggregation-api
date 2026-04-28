@@ -1,7 +1,7 @@
 package com.weaponboy.transaction_aggregation_api.sourcing.sources;
 
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transactionImpl;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transactionImpl;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -13,9 +13,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;

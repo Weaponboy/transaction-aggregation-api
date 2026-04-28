@@ -2,7 +2,7 @@ package com.weaponboy.transaction_aggregation_api.sourcing.inputData;
 
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.csvPipeline;
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.jsonPipeline;
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.directObjectsPipeline;
 import org.springframework.stereotype.Service;
 

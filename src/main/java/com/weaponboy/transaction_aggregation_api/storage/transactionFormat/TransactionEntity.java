@@ -1,11 +1,10 @@
-package com.weaponboy.transaction_aggregation_api.storeForUse.format;
+package com.weaponboy.transaction_aggregation_api.storage.transactionFormat;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "transactions")

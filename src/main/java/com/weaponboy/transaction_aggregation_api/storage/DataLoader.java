@@ -1,9 +1,9 @@
-package com.weaponboy.transaction_aggregation_api.storeForUse;
+package com.weaponboy.transaction_aggregation_api.storage;
 
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.TransactionEntity;
-import com.weaponboy.transaction_aggregation_api.storeForUse.format.transaction;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.TransactionEntity;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
 import com.weaponboy.transaction_aggregation_api.sourcing.inputData.TransactionProvider;
-import com.weaponboy.transaction_aggregation_api.dbManagement.TransactionService;
+import com.weaponboy.transaction_aggregation_api.storage.sorting.TransactionService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
