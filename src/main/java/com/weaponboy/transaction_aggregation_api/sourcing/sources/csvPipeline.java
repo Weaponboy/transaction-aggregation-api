@@ -1,6 +1,6 @@
 package com.weaponboy.transaction_aggregation_api.sourcing.sources;
 
-import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
+//import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
 import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transactionImpl;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -23,7 +23,7 @@ public class csvPipeline {
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public List<transaction> getTransactions() {
+    public List<transactionImpl> getTransactions() {
         ClassPathResource resource = new ClassPathResource("mockData/bank_records.csv");
 
         if (!resource.exists()) {
@@ -39,7 +39,7 @@ public class csvPipeline {
                      .setTrim(true)
                      .build())) {
 
-            List<transaction> transactions = StreamSupport.stream(csvParser.spliterator(), false)
+            List<transactionImpl> transactions = StreamSupport.stream(csvParser.spliterator(), false)
                     .map(this::parseRecordToTransaction)
                     .collect(Collectors.toList());
 
@@ -50,7 +50,7 @@ public class csvPipeline {
         }
     }
 
-    private transaction parseRecordToTransaction(CSVRecord record) {
+    private transactionImpl parseRecordToTransaction(CSVRecord record) {
         try {
             String accountId       = record.get("account_id");
             String transactionDate = record.get("transaction_date");

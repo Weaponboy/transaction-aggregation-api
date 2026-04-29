@@ -2,6 +2,7 @@ package com.weaponboy.transaction_aggregation_api.sourcing.inputData;
 
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.csvPipeline;
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.jsonPipeline;
+import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.TransactionEntity;
 import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
 import com.weaponboy.transaction_aggregation_api.sourcing.sources.directObjectsPipeline;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.List;
 @Service
 public class TransactionProvider {
 
+    private List<TransactionEntity> entities = new ArrayList<>();
     private ArrayList<transaction> rawTransactionFiles = new ArrayList<>();
 
     private directObjectsPipeline objectData = new directObjectsPipeline();
@@ -25,9 +27,25 @@ public class TransactionProvider {
         rawTransactionFiles.addAll(objectData.getSampleTransactions());
         rawTransactionFiles.addAll(csvData.getTransactions());
         rawTransactionFiles.addAll(jsonData.getTransactions());
+
+        entities = rawTransactionFiles.stream()
+                .map(t -> {
+                    TransactionEntity e = new TransactionEntity();
+                    e.setId(t.id());
+                    e.setAccount(t.account());
+                    e.setAmount(t.transactionAmount());
+                    e.setDate(t.date());
+                    e.setMerchant(t.merchant());
+                    e.setBank(t.bank());
+                    e.setDescription(t.description());
+                    return e;
+                })
+                .toList();
     }
 
-    public List<transaction> getTransactions() {
-        return rawTransactionFiles;
+    public List<TransactionEntity> getTransactions() {
+        aggregateData();
+        System.out.println("Number of transactions loaded: " + entities.size());
+        return entities;
     }
 }

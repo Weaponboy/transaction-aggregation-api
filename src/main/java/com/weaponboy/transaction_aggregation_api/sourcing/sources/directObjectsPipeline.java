@@ -1,6 +1,5 @@
 package com.weaponboy.transaction_aggregation_api.sourcing.sources;
 
-import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transaction;
 import com.weaponboy.transaction_aggregation_api.storage.transactionFormat.transactionImpl;
 
 import java.math.BigDecimal;
@@ -10,8 +9,8 @@ import java.util.List;
 
 public class directObjectsPipeline {
 
-    public List<transaction> getSampleTransactions() {
-        List<transaction> transactions = new ArrayList<>();
+    public List<transactionImpl> getSampleTransactions() {
+        List<transactionImpl> transactions = new ArrayList<>();
 
         transactions.add(new transactionImpl("001", new BigDecimal("120.50"), LocalDate.now(), "Amazon", "Chase", "Nothing happened here"));
         transactions.add(new transactionImpl("002", new BigDecimal("75.20"), LocalDate.now(), "Walmart", "Bank of America", "Nothing happened here"));
